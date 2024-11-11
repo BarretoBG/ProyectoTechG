@@ -1,0 +1,103 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: 'Poppins', sans-serif;
+	background: white;
+}
+.imagen{
+	position: relative; /*posicion relativa al punto de inicio*/
+	width: 100%;
+	height: 250px;
+}
+.imagen:before{
+	content: ''; /* crear un nuevo contenido */
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(255deg, #ff8614, #05b580);
+	z-index: 1; /* para superponer el elemento */
+	mix-blend-mode: screen; /*para mezclar ambos componentes*/
+}
+.imagen img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /*acomodar la imagen en el contenedor*/
+}
+nav{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+form{
+    width: 40%;
+    align-items: center;
+}
+h2{
+	color: #607d8b;
+	border-bottom: 4px solid #d46e0f;
+	display: inline-block;
+	letter-spacing: 2px;
+	margin: 20px 0px;
+}
+.contenido{
+	margin-bottom: 15px;
+    width: 100%;
+}
+label{
+	font-size: 12px;
+	margin-bottom: 5px;
+	display: inline-block;
+	color: #607d8b;
+	font-weight: 300;
+	letter-spacing: 1px;
+}
+.contenido input{
+	width: 100%;
+	padding: 10px 0px;
+	border: 1px solid #607d8b;
+	font-size: 12px;
+	letter-spacing: 1px;
+    text-indent: 2em;
+	color: #607d8b;
+	border-radius: 30px;
+}
+.contenido textarea{
+	width: 100%;
+	height: 200px;
+	padding: 10px 0px;
+	border: 1px solid #607d8b;
+	font-size: 12px;
+	letter-spacing: 1px;
+    text-indent: 2em;
+	color: #607d8b;
+	border-radius: 30px;
+}
+.botones{
+	text-align: center;
+	font-size: 12px;
+}
+button{
+	height: 45px;
+	width: 100%;
+	margin: 15px 0;
+	border-radius: 20px;
+	outline: none;
+	color: #fff;
+	border: none;
+	font-weight: 500;
+	letter-spacing: 1px;
+	background: linear-gradient(135deg, #ff8614, #05b580);
+	cursor: pointer;
+}
+a{
+	text-decoration: none;
+	color: #607d8b;
+}
+
+@media (max-width: 600px) {
+	form{
+		width: 70%;
+	}
+}
