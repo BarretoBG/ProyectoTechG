@@ -41,6 +41,7 @@ header a:hover{
 .centro input{
     width: 80%;
 	padding: 10px 0px;
+    /* usemos variables para los valores que se repiten */
 	border: 0.4px solid #607d8b;
 	letter-spacing: 1px;
     text-indent: 2em;
