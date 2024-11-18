@@ -49,11 +49,16 @@ header a:hover{
 .dibujo{
     width: 60px;
 }
+.carrito{
+    width: 30px;
+}
+.user{
+    width: 30px;
+}
 /*---------SLIDER----------*/
 
 .slider-box{
-    width: auto;
-    height: 100%;
+    height: 500px;
     overflow: hidden;
     grid-area: 1;
 }
@@ -73,6 +78,7 @@ header a:hover{
 .slider-box img{
     width: 100%;
     opacity: 0.5;
+    object-fit: cover;
 }
 
 .slider-box:before{
@@ -150,15 +156,15 @@ section h2 {
     justify-content: space-between;
     text-align: left;
     color: white;
-    grid-area: 3;
+    grid-row: 3;
 }
 
-.contenedor-footer1{
+.contenedor-footer-first{
     margin-right: 2rem;
     margin-top: 5rem;
 }
 
-.contenedor-footer2{
+.contenedor-footer-second{
     display: grid;
     grid-template-areas:
         "a a a"
@@ -166,15 +172,19 @@ section h2 {
         "b b b";
 }
 
-.contenedor2{
+.contenedor-informes{
     display: flex;
     justify-content: space-around;
     grid-area: a;
 }
 
-.contenedor-footer1 .redes{
+.contenedor-footer-first .redes{
     display: flex;
     justify-content: space-around;
+}
+
+hr{
+    margin: 15px 0px;
 }
 
 .info{
@@ -186,7 +196,7 @@ section h2 {
 }
 
 .info h3{
-    font-size: 14px;
+    font-size: 1.1rem;
     margin: 20px 0;
     font-family: Onest;
     font-style: bold;
@@ -203,26 +213,41 @@ section h2 {
 .info h4{
      color: white;
 }
-.inforecla{
-    margin-top: -80px;
-    margin-left: -50px;
+
+.contenedor-reclamos{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-top: -80px;
     grid-area: b;
 }
 
-@media (max-width:600px) {
+@media (max-width:700px) {
     .footer{
         flex-direction: column;
     }    
-    .inforecla{
+    .contenedor-reclamos{
         margin-top: 30px;
     }
-    .contenedor-footer1{
+    .contenedor-footer-first{
         margin-top: -5px;
     }
-    .centro{
-        width: 300px;
+    .letra{
+        display: none;
     }
+    .slider-box ul{
+        height: 500px;
+    }
+    .slider-box li{
+        height: 500px;
+    }
+    .slider-box img{
+        height: 500px;
+    }
+    section p{
+        font-size: 12px;
+    }
+    section h2 {
+        font-size: 30px;
+    }    
 }
