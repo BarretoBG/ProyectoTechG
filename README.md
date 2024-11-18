@@ -27,7 +27,7 @@ Proyecto Tech Girls/
         reclamaciones.css   <- Estilos para reclamaciones.html
     images/                 
     js/                     
-        mapper.js           <- Archivo con scripts para la tienda
+        app.js           <- Archivo con scripts para la tienda
 
 # Tecnologías Usadas
 - **HTML5**: Estructura del contenido
