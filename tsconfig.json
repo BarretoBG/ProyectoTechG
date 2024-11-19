@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",  // Soporte para async/await
+    "module": "ESNext",  // Módulos modernos
+    "jsx": "react-jsx",  // Soporte para JSX
+    "strict": true,      // Habilitar reglas estrictas
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}

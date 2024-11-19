@@ -1,54 +1,50 @@
-# Minimarket - Organic Market
+# React + TypeScript + Vite
 
-# Descripción:
-Organic Market es un sitio web planeado para la presentación del proyecto de React - Tech Girls Power. El objetivo principal de esta página es ofrecer una experiencia sencilla y eficiente a los usuarios para que puedan explorar productos, registrarse, iniciar sesión y realizar compras desde la comodidad de su hogar
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-# Contenido del Proyecto
-El proyecto consta de las siguientes páginas principales:
+Currently, two official plugins are available:
 
-- **index.html**: Página principal con un slider de imágenes y una descripción de la empresa. Incluye enlaces a la tienda y otras secciones relevantes
-- **login.html**: Página para iniciar sesión, con opción de recordar al usuario y un enlace para registrarse
-- **registro.html**: Página de registro de nuevos usuarios con campos para nombre, apellidos, email, usuario, contraseña y teléfono
-- **reclamaciones.html**: Página para que los usuarios puedan registrar sus quejas, ello como parte del cumplimiento de los requisitos legales
-- **tienda.html**: Página de la tienda donde se muestran los productos organizados por categorías, con un buscador integrado
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-# Estructura del Proyecto
-Proyecto Tech Girls/
-    index.html              <- Página principal
-    login.html              <- Inicio de sesión
-    registro.html           <- Registro de usuarios
-    tienda.html             <- Tienda con productos
-    reclamaciones.html      <- Quejas
-    style/                  
-        estilos.css         <- Estilos para index.html
-        login.css           <- Estilos para login.html
-        registro.css        <- Estilos para registro.html
-        tienda.css          <- Estilos para tienda.html
-        reclamaciones.css   <- Estilos para reclamaciones.html
-    images/                 
-    js/                     
-        app.js           <- Archivo con scripts para la tienda
+## Expanding the ESLint configuration
 
-# Tecnologías Usadas
-- **HTML5**: Estructura del contenido
-- **CSS3**: Estilos personalizados para cada sección
-- **JavaScript**: Funcionalidad en la tienda
-- **Google Fonts**: Fuentes personalizadas
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-# Iniciar el Proyecto
-1. Descarga el repositorio
-2. Abre cualquier archivo `.html` para visualizar la página correspondiente
-3. Las carpetas `style/`, `images/` y `js/` deben estar dentro del directorio
+- Configure the top-level `parserOptions` property like this:
 
-# Funcionalidades
-- **Inicio de sesión**: Los usuarios pueden acceder a su cuenta desde login.html (pendiente)
-- **Registro de usuario**: Posibilidad de crear una cuenta nueva (pendiente)
-- **Tienda**: Búsqueda de productos y visualización de categorías (realizado)
-- **Libro de Reclamaciones**: Registro de quejas (pendiente)
-- **Responsive Design**: Diseñado para adaptarse a diferentes dispositivos (realizado)
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
 
-# Créditos
-Postulante: Britney Barreto
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-# Licencia
-Todos los derechos reservados 2024 - Peru
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react'
+
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
+```
