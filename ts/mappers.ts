@@ -5,12 +5,12 @@ export const reemplazoNombreCategoria = (nombre: string): string =>
 
 export const mapperProductos = (
     productos: Producto[],
-    elementoPadre: HTMLElement,
+    contenedor: HTMLElement,
     crearItem: (producto: Producto) => HTMLElement
 ): void => {
-    elementoPadre.innerHTML = '';
+    contenedor.innerHTML = '';
     productos.forEach(producto => {
         const item = crearItem(producto);
-        elementoPadre.appendChild(item);
+        contenedor.appendChild(item);
     });
 };

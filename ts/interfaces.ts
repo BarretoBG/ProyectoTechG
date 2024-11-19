@@ -1,17 +1,18 @@
 export interface Producto {
     id: number;
-    imagenes: string[];
-    categoria: string;
-    titulo: string;
-    precio: number;
+    images: string;
+    category: string;
+    title: string;
+    price: number;
 }
 
 export interface ProductoCarrito {
     id: string;
-    cantidad: number;
+    quantity: number;
 }
 
 export interface Carrito {
-    usuarioId: number;
-    productos: ProductoCarrito[];
+    idUser: number;
+    products: ProductoCarrito[];
 }
+

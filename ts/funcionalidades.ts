@@ -1,16 +1,44 @@
 import { Producto, ProductoCarrito } from "./interfaces";
-import { reemplazoNombreCategoria } from "./mappers";
+import { crearItem } from "./utils";
 
 // Filtrar productos
 export const filtrarPorCategoria = (productos: Producto[], categoria: string): Producto[] =>
-    productos.filter(producto => producto.categoria === categoria);
+    productos.filter(producto => producto.category === categoria);
 
 export const filtrarPorTitulo = (productos: Producto[], titulo: string): Producto[] =>
     productos.filter(producto => 
-        producto.titulo.toLowerCase().includes(titulo.toLowerCase())
+        producto.title.toLowerCase().includes(titulo.toLowerCase())
     );
 
-// Manejo del carrito
+//Mostrar productos por categoria
+export const getProductbyCategory = async (categoria: string): Promise<void> => {
+    try {
+        const respuesta = await fetch('https://dummyjson.com/products');
+        if (!respuesta.ok) {
+            throw new Error(`Error en la solicitud: ${respuesta.status}`);
+        }
+
+        const datos = await respuesta.json();
+        const productosFiltrados: Producto[] = filtrarPorCategoria(datos.products, categoria);
+
+        const conjuntoItems = document.getElementById('conjunto-items');
+        if (!conjuntoItems) {
+            console.error('El elemento "conjunto-items" no existe.');
+            return;
+        }
+
+        conjuntoItems.innerHTML = '';
+
+        productosFiltrados.forEach((producto: Producto) => {
+            const item = crearItem(producto);
+            conjuntoItems.appendChild(item);
+        });
+    } catch (error) {
+        console.error('Error al obtener los productos:', error);
+    }
+};
+
+// Contador para carrito
 let totalProductosEnCarrito = 0;
 
 export const agregarAlCarrito = async (idUsuario: number, productos: ProductoCarrito[]): Promise<void> => {
