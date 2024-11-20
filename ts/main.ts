@@ -1,15 +1,20 @@
+// los archivos son confusos de leer ya que se está mezclando muchas carpetas, para los siguientes entregables es importante que la rama solo tenga el proyecto de react no la solución de proyectos anteriores para evitar confusiones.
+
+
 import { fetchData } from "./utils";
 import { mapperProductos } from "./mappers";
 import { crearItem } from "./utils";
 import { Producto } from "./interfaces";
 import { getProductbyCategory } from "./funcionalidades";
 
+// por qué no moverlo al archivo interfaces?
 // Definir el tipo de grupos y categorías
 interface Grupos {
     [grupo: string]: string[];
 }
 
 // Mostrar todas las categorías
+// la lógica de esta función está muy sobre cargada se debe separar la responsabilidad en diferentes funciones
 const getAllCategories = async (): Promise<void> => {
     try {
         const respuesta = await fetch('https://dummyjson.com/products/category-list');
@@ -83,6 +88,7 @@ const getAllProducts = async (): Promise<void> => {
     }
 };
 
+// igual aquí tiene mucha lógica
 //Mostrar productos buscados
 export const buscarProducto = async (): Promise<void> => {
     try {
