@@ -1,28 +1,24 @@
 {
   "compilerOptions": {
-    "target": "ES6",                          // Transpila a ES6 para compatibilidad con navegadores modernos.
-    "module": "ESNext",                       // Usa ESNext para permitir importaciones dinámicas.
-    "lib": ["DOM", "ES6"],                    // Incluye las APIs del navegador y ES6.
-    "allowJs": false,                         // Solo queremos compilar TypeScript.
-    "strict": true,                           // Activa todas las comprobaciones estrictas.
-    "esModuleInterop": true,                  // Permite importar módulos CommonJS como si fueran ES6.
-    "forceConsistentCasingInFileNames": true, // Enforce consistent file naming.
-    "skipLibCheck": true,                     // Omite la verificación de tipos de archivos .d.ts.
-    "outDir": "./dist",                       // Carpeta de salida de los archivos compilados.
-    "rootDir": "./src",                       // Carpeta raíz del código fuente.
-    "moduleResolution": "Node",              // Usa la resolución de módulos de Node.js.
-    "resolveJsonModule": true,                // Permite importar archivos JSON.
-    "noImplicitAny": true,                    // Previene el uso de `any` implícito.
-    "strictNullChecks": true,                 // Activa la verificación estricta de null y undefined.
-    "strictPropertyInitialization": true,     // Requiere que las propiedades se inicialicen en el constructor.
-    "baseUrl": "./src",                       // Define un punto base para las importaciones relativas.
-    "paths": {                                // Simplifica las importaciones con alias.
-      "@interfaces/*": ["interfaces/*"],
-      "@funcionalidades/*": ["funcionalidades/*"],
-      "@componentes/*": ["componentes/*"],
-      "@servicios/*": ["servicios/*"]
-    }
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
   },
-  "include": ["src/**/*"],                    // Archivos incluidos para compilación.
-  "exclude": ["node_modules", "dist"]         // Archivos o carpetas excluidos.
+  "include": ["src"]
 }
