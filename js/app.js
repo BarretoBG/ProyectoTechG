@@ -1,6 +1,6 @@
 let totalProductosEnCarrito = 0;
 
-//Crear item
+//Crear item--
 function createitem (id,imagen,category,title,price){
     const item = document.createElement('div');
     item.className = 'item';
@@ -47,7 +47,7 @@ function createitem (id,imagen,category,title,price){
     return item;
 }
 
-//Mostrar todos los productos
+//Mostrar todos los productos--
 const getAllProducts = async() => {
 	try {
 		const respuesta = await fetch('https://dummyjson.com/products');
@@ -73,7 +73,7 @@ const getAllProducts = async() => {
 
 getAllProducts();
 
-// Filtrar productos por categoría
+// Filtrar productos por categoría--
 function filtrarPorCategoria(productos, categoria) {
     return productos.filter(producto => producto.category === categoria);
 }
@@ -103,13 +103,14 @@ async function getProductbyCategory(categoria) {
     }
 }
 
-// Filtrar productos por nombre
+// Filtrar productos por nombre--
 function filtrarPorTitulo(productos, titulo) {
     return productos.filter(producto =>
         producto.title.toLowerCase().includes(titulo.toLowerCase())
     );
 }
 
+//Buscar en navegador
 async function buscarProducto() {
     try {
         const inputBusqueda = document.getElementById('input-busqueda');
@@ -139,7 +140,7 @@ async function buscarProducto() {
 	}
 }
 
-// Iniciar la funcionalidad al cargar la página
+// Iniciar la funcionalidad al cargar la página--
 window.onload = buscarProducto;
 
 const grupos = {
@@ -152,7 +153,7 @@ const grupos = {
     Vehicles: ["motorcycle", "vehicle"]
 };
 
-//Listar categoria
+//Listar categoria--
 const getAllCategories = async() => {
     try {
         const respuesta = await fetch('https://dummyjson.com/products/category-list');
@@ -201,7 +202,7 @@ const getAllCategories = async() => {
     
 getAllCategories();   
 
-// Función para agregar productos al carrito
+// Función para agregar productos al carrito--
 async function agregarAlCarrito(userId, productos) {
     try {
         const respuesta = await fetch('https://dummyjson.com/carts/add', {
@@ -230,7 +231,7 @@ async function agregarAlCarrito(userId, productos) {
     }
 }
 
-// Función para actualizar
+// Función para actualizar--
 function actualizarVisualCarrito() {
     const carritoContenedor = document.getElementById('carrito');
     let contador = document.getElementById('contador-carrito');
