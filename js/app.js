@@ -1,3 +1,5 @@
+// lo ideal es poder separar en diferentes archivos para que sea reutilizable
+
 let totalProductosEnCarrito = 0;
 
 //Crear item
@@ -50,8 +52,8 @@ function createitem (id,imagen,category,title,price){
 //Mostrar todos los productos
 const getAllProducts = async() => {
 	try {
+        // hay que separar el consumo de servicio en otro archivo que solo retorne el resultado
 		const respuesta = await fetch('https://dummyjson.com/products');
-		console.log(respuesta)
         const conjuntoItems = document.getElementById('conjunto-items');
         
         if (!conjuntoItems) {
@@ -59,9 +61,11 @@ const getAllProducts = async() => {
             return;
         }
         
+        // se podría crear una funcionalidad utilitaria clearHTML o clearContent que lo encapsule
         conjuntoItems.innerHTML = '';
 
         const datos = await respuesta.json();
+        // esto debería estar en otra funcion que podría llamar buildProducts
         datos.products.forEach(producto => {
             const item = createitem(producto.id,producto.images[0],producto.category,producto.title,producto.price);
             conjuntoItems.appendChild(item);    
@@ -74,11 +78,13 @@ const getAllProducts = async() => {
 getAllProducts();
 
 // Filtrar productos por categoría
+// en modo responsive no abre el menu para filtrar y sería ideal agregarle un mensaje de no hay productos porque solo muestra una sección en blanco
 function filtrarPorCategoria(productos, categoria) {
     return productos.filter(producto => producto.category === categoria);
 }
 
 // Mostrar productos por categoría
+// igual que al anterior separarlo en archivos
 async function getProductbyCategory(categoria) {
     try {
         const respuesta = await fetch('https://dummyjson.com/products');
@@ -122,11 +128,15 @@ async function buscarProducto() {
 
         inputBusqueda.addEventListener('input', async () => {
             const texto = inputBusqueda.value;
+            // la idea es buena pero cada vez que se escribe estas haciendo una llamada al servicio lo cual no es recomendable
+            // una forma de mitigar esto es aplicando un debounce
+            // adicional a lo anterior esto debería estar en otra función
             const respuesta = await fetch(`https://dummyjson.com/products/search?q=${texto}`);
-            console.log(respuesta);
             const datos = await respuesta.json();
             let productosFiltrados = datos.products;
             conjuntoItems.innerHTML = '';
+
+            // debe estar en otra función
             productosFiltrados.forEach(producto => {
                 const item = createitem(producto.id,producto.images[0],producto.category,producto.title,producto.price);
                 conjuntoItems.appendChild(item);
@@ -153,6 +163,7 @@ const grupos = {
 };
 
 //Listar categoria
+// hay que desacoplar esta función para que haya solido responsabilidades únicas, una responsabilidad de llamar al servicio, otra de procesar los datos, otra de pintar los elementos.
 const getAllCategories = async() => {
     try {
         const respuesta = await fetch('https://dummyjson.com/products/category-list');
@@ -202,6 +213,7 @@ const getAllCategories = async() => {
 getAllCategories();   
 
 // Función para agregar productos al carrito
+// igual aquí
 async function agregarAlCarrito(userId, productos) {
     try {
         const respuesta = await fetch('https://dummyjson.com/carts/add', {
@@ -218,7 +230,6 @@ async function agregarAlCarrito(userId, productos) {
         }
 
         const datos = await respuesta.json();
-        console.log('Productos agregados al carrito:', datos);
 
         // Incrementar el contador global
         totalProductosEnCarrito += 1;
