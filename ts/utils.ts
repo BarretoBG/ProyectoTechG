@@ -9,6 +9,7 @@ export const fetchData = async <T>(url: string): Promise<T> => {
     return await respuesta.json();
 };
 
+// este util es para crear elementos visuales, tal vez podrías crear una carpeta que se llame builders y tengas este tipo de funcionalidad agrupada dentro
 export const crearItem = (producto: Producto): HTMLElement => {
     const item = document.createElement('div');
     item.className = 'item';
