@@ -1,13 +1,5 @@
-export interface Producto {
-    id: number;
-    images: string;
-    category: string;
-    title: string;
-    price: number;
-}
-
 export interface ProductoCarrito {
-    id: string;
+    id: number;
     quantity: number;
 }
 
@@ -16,3 +8,6 @@ export interface Carrito {
     products: ProductoCarrito[];
 }
 
+export interface Grupos {
+    [key: string]: string[];
+}

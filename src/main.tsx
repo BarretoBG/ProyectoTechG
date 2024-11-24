@@ -1,10 +1,10 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import { getAllCategories } from "./ts/bussines/funcionalidades";
+import { getAllProducts } from "./ts/bussines/funcionalidades";
+import { buscarProducto } from "./ts/bussines/funcionalidades";
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+
+window.onload = () => {
+    getAllProducts();
+    getAllCategories();
+    buscarProducto();
+};
