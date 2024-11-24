@@ -1,18 +1,19 @@
 import styled from 'styled-components';
 
 export const FooterWrapper = styled.div`
-  background-color: #f8f8f8;
-  padding: 40px 20px;
+  background-color: black;
+  padding: 40px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const ContenedorFooterFirst = styled.div`
-  display: flex;
-  justify-content: space-between;
   margin-bottom: 20px;
 `;
 
 export const Info = styled.div`
-  width: 45%;
+  flex: 0 0 calc(40% - 1rem);
 `;
 
 export const Redes = styled.div`
@@ -23,7 +24,7 @@ export const Redes = styled.div`
 
 export const FooterLink = styled.a`
   text-decoration: none;
-  color: black;
+  color: white;
   font-size: 16px;
 `;
 
@@ -33,18 +34,23 @@ export const Hr = styled.hr`
 `;
 
 export const ContenedorFooterSecond = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+    grid-template-areas:
+        "a a a"
+        "b b b";
 `;
 
 export const ContenedorInformes = styled.div`
-  width: 45%;
+  display: flex;
+  justify-content: space-around;
+  grid-area: a;
 `;
 
 export const ContenedorReclamos = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    grid-area: b;
 `;
 
 export const ReclamosLink = styled.a`

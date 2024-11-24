@@ -2,8 +2,7 @@ import { FC } from "react";
 import HeaderStyled from './Header.styled';
 
   const { HeaderWrapper, HeaderLink, Centro, InputBusqueda, ButtonBusqueda, Usuario,
-    Logo, LogoLetra, LogoDibujo, Carrito, User, Menu, MenuImg } =
-    HeaderStyled;
+    Logo, LogoLetra, LogoDibujo, Carrito, User, Menu, MenuImg } = HeaderStyled;
 
 const Header: FC = () => {
     return (

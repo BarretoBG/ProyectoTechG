@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import FooterStyled from './Footer.styled';
 
-  const { FooterWrapper, ContenedorFooterFirst, Info, Redes, FooterLink, Hr,
+const { FooterWrapper, ContenedorFooterFirst, Info, Redes, FooterLink, Hr,
     ContenedorFooterSecond, ContenedorInformes, ContenedorReclamos, ReclamosLink,
     ReclamosImg } = FooterStyled;
 

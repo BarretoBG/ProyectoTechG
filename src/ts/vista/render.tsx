@@ -94,15 +94,13 @@ export const renderCategorias = (categorias: string[]): void => {
     };
 
     Object.keys(grupos).forEach(grupo => {
-        // Crear contenedor del grupo
         const grupoCategoria = document.createElement('div');
         grupoCategoria.classList.add('grupo-contenedor');
-
+        
         const nombreGrupoCategoria = document.createElement('h3');
         nombreGrupoCategoria.textContent = grupo;
         grupoCategoria.appendChild(nombreGrupoCategoria);
 
-        // Crear contenedor para subcategorías
         const subcategoriaGrupo = document.createElement('ul');
         subcategoriaGrupo.classList.add('subcategoria');
         
