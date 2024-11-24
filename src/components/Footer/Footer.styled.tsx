@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const FooterWrapper = styled.div`
   background-color: black;
   padding: 40px;
+  font-family: 'Onest';
   color: white;
   display: flex;
   justify-content: space-between;
@@ -14,6 +15,7 @@ export const ContenedorFooterFirst = styled.div`
 
 export const Info = styled.div`
   flex: 0 0 calc(40% - 1rem);
+  font-size: 0.8rem;
 `;
 
 export const Redes = styled.div`
@@ -25,7 +27,7 @@ export const Redes = styled.div`
 export const FooterLink = styled.a`
   text-decoration: none;
   color: white;
-  font-size: 16px;
+  font-size: 0.8rem;
 `;
 
 export const Hr = styled.hr`
@@ -56,6 +58,7 @@ export const ContenedorReclamos = styled.div`
 export const ReclamosLink = styled.a`
   text-decoration: none;
   color: black;
+  font-size: 0.8rem;
 `;
 
 export const ReclamosImg = styled.img`

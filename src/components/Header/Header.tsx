@@ -8,14 +8,14 @@ const Header: FC = () => {
     return (
       <HeaderWrapper>
         <Menu>
-          <MenuImg src="images/menu.png" alt="Menu" />
+          <MenuImg src="../../assets/images/menu.png" alt="Menu" />
         </Menu>
         <Logo>
           <HeaderLink href="index.html">
-            <LogoDibujo src="images/logo1.png" alt="Logo" />
+            <LogoDibujo src="src/assets/images/logo1.png" alt="Logo" />
           </HeaderLink>
           <HeaderLink href="index.html">
-            <LogoLetra src="images/logo.png" alt="Logo Text" />
+            <LogoLetra src="src/assets/images/logo.png" alt="Logo Text" />
           </HeaderLink>
         </Logo>
         <Centro>
@@ -24,10 +24,10 @@ const Header: FC = () => {
         </Centro>
         <Usuario>
           <HeaderLink id="carrito">
-            <Carrito src="images/carrito.png" alt="Carrito" />
+            <Carrito src="src/assets/images/carrito.png" alt="Carrito" />
           </HeaderLink>
           <HeaderLink href="login.html">
-            <User src="images/user.png" alt="Usuario" />
+            <User src="src/assets/images/user.png" alt="Usuario" />
           </HeaderLink>
         </Usuario>
       </HeaderWrapper>
