@@ -1,0 +1,7 @@
+[
+    { "id": 1, "nombre": "Miraflores" },
+    { "id": 2, "nombre": "San Isidro" },
+    { "id": 3, "nombre": "Surco" },
+    { "id": 4, "nombre": "Barranco" },
+    { "id": 5, "nombre": "La Molina" }
+  ]

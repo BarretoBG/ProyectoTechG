@@ -1,26 +1,22 @@
-import { FC, useState, useEffect } from "react";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import Category from "./components/Category/Category";
-import Producto from "./components/Products/Products";
-import { getAllCategories,getAllProducts,buscarProducto } from "./ts/bussines/funcionalidades";
+import { FC } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CartProvider } from './context/CartContext'; // Importa el contexto
+import Home from "./pages/Home/Home";
+import { CarDetail } from "./pages/CarDetail/CarDetail";
+import { ModuleRoutes } from "./proxy/router";
 
 const App: FC = () => {
-
-  useEffect(() => {
-    getAllProducts();
-    getAllCategories();
-    buscarProducto();
-  }, []);
-
   return (
-    <>
-    <Header />
-    <Category />
-    <Producto />
-    <Footer />
-  </>
+    <CartProvider> {/* Proveemos el contexto para toda la aplicación */}
+      <BrowserRouter>
+        <Routes>
+          <Route path={ModuleRoutes.Init} element={<Home />} />
+          <Route path={ModuleRoutes.CarResume} element={<CarDetail />} />
+        </Routes>
+      </BrowserRouter>
+    </CartProvider>
   );
-}
+};
 
-export default App
+export default App;
+

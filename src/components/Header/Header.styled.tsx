@@ -8,6 +8,7 @@ const HeaderWrapper = styled.header`
   width: 100%;
   padding: 20px 0px;
   background-color: white;
+  grid-area: header;
 `;
 
 const HeaderLink = styled.a`
@@ -50,6 +51,7 @@ const ButtonBusqueda = styled.button`
 const Usuario = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 
 const Logo = styled.div`
@@ -77,6 +79,14 @@ const User = styled.img`
   width: 30px;
 `;
 
+const NumeroItem = styled.span`
+  color: white;
+  background-color: #0da477;
+  padding: 3px 7px;
+  border-radius: 15px;
+  text-align: center;
+`;
+
 const Menu = styled.div`
   display: none;
 `;
@@ -85,16 +95,10 @@ const MenuImg = styled.img`
   width: 0px;
 `;
 
-const Span = styled.span`
-  background-color: #0da477;
-  padding: 3px 7px;
-  border-radius: 15px;
-`;
-
 const HeaderStyled = {
-    HeaderWrapper, HeaderLink, Centro, InputBusqueda,
+    NumeroItem, HeaderWrapper, HeaderLink, Centro, InputBusqueda,
     ButtonBusqueda, Usuario, Logo, LogoLetra, LogoDibujo, Carrito,
-    User, Menu, MenuImg, Span
+    User, Menu, MenuImg
 };
 
 export default HeaderStyled;

@@ -7,6 +7,7 @@ export const FooterWrapper = styled.div`
   color: white;
   display: flex;
   justify-content: space-between;
+  grid-area: footer;
 `;
 
 export const ContenedorFooterFirst = styled.div`
