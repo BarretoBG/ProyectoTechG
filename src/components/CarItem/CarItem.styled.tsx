@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+//esto podr'ia ser un componente
 export const Titulo = styled.h2`
   font-family: Onest;  
   font-size: 18px;
@@ -17,6 +18,7 @@ const Tabla = styled.table`
   margin: 20px 0;
 `;
 
+// si esto es reutilizable podr'ia ser un componente
 const FilaHeader = styled.tr`
   background-color: #333;
   color: #fff;

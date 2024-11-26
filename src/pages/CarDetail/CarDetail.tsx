@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 export const CarDetail: FC = () => {
   const { carrito, setCarrito } = useCart();
+  // no se esta usando b'usqueda
   const [busqueda, setBusqueda] = useState<string>('');
   const navigate = useNavigate();
 
@@ -16,6 +17,7 @@ export const CarDetail: FC = () => {
     alert("Su pedido se registró con éxito");
 
     setCarrito([]); // Limpiamos el carrito
+    // usemos un enum no palabras m'agicas
     navigate("/"); // Redirigimos al inicio
   };
 
