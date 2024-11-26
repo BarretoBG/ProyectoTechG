@@ -44,6 +44,7 @@ export const CartProvider: FC<CartProviderProps> = ({ children }) => {
     setCarrito((prevCarrito) => prevCarrito.filter((producto) => producto.id !== productoId));
   };
 
+  // lo ideal ser'ia solo exportar el value y la funci'on de cambio, la dem'as l'ogica debe llamarse a demanda desde donde sea necesairo pero no deber'ia ser incluida cuando se use el provider.
   return (
     <CartContext.Provider value={{ carrito, setCarrito, agregarAlCarrito, eliminarDelCarrito }}>
       {children}

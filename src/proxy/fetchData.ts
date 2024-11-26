@@ -1,3 +1,5 @@
+// el dominio del api se repite, esto podr'ia centralizarse en un archivo aparte
+
 export const fetchData = async <T>(): Promise<T> => {
     const url = 'https://dummyjson.com/products';
     const respuesta = await fetch(url);
@@ -9,6 +11,7 @@ export const fetchData = async <T>(): Promise<T> => {
     return await respuesta.json();
 };
 
+// por qu'e no tipar el body? si no se tipa puede recibir cualquier valor
 export const fetchDataCarrito = async <T>(body: object): Promise<T> => {
     const url = 'https://dummyjson.com/carts/add';
 

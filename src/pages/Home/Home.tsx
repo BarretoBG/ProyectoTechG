@@ -1,3 +1,4 @@
+// si el c'odigo esta bien estructurado los comentarios explicando l'inea a l'inea no son necesarios.
 import { FC, useState, useEffect } from 'react';
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
@@ -30,6 +31,7 @@ const Home: FC = () => {
   const [cargando, setCargando] = useState<boolean>(true);
   const [busqueda, setBusqueda] = useState<string>(''); // Estado para la barra de búsqueda
   
+  // no se usa carrito
   const { carrito, agregarAlCarrito } = useCart(); // Obtener carrito y agregarAlCarrito desde el contexto
 
   useEffect(() => {
@@ -53,9 +55,8 @@ const Home: FC = () => {
     if (busqueda.trim() === '') {
       setProductosFiltrados(productos); // Si la búsqueda está vacía, mostramos todos los productos
     } else {
-      const productosFiltrados = productos.filter(producto =>
-        producto.title.toLowerCase().includes(busqueda.toLowerCase()) ||
-        producto.description.toLowerCase().includes(busqueda.toLowerCase())
+      const productosFiltrados = productos.filter(({ title, description }) =>
+        [title.toLowerCase(), description.toLowerCase()].includes(busqueda.toLowerCase())
       );
       setProductosFiltrados(productosFiltrados); // Filtrar productos según el texto de búsqueda
     }

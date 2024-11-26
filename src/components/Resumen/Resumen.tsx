@@ -1,14 +1,17 @@
+// si pongo valores vac'ios en el nombre y apellido igual registra
 import React, { FC, useState } from "react";
 import ResumenStyled from "./Resumen.styled";
 
 const { Formulario, Campo, Error, Boton, Select } = ResumenStyled;
 
 interface ResumenProps {
+  // por qu'e any?
   carrito: any[];
   onSubmit: (datosFormulario: Record<string, string>) => void;
 }
 
 const Resumen: FC<ResumenProps> = ({ carrito, onSubmit }) => {
+  // falta tipar el useState para que solo permita ciertas claves
   const [formulario, setFormulario] = useState({
     nombres: "",
     apellidos: "",
@@ -18,6 +21,7 @@ const Resumen: FC<ResumenProps> = ({ carrito, onSubmit }) => {
     celular: "",
   });
 
+  // falta tipar el useState para que solo permita ciertas claves
   const [errores, setErrores] = useState({
     nombres: "",
     apellidos: "",
@@ -33,9 +37,11 @@ const Resumen: FC<ResumenProps> = ({ carrito, onSubmit }) => {
     switch (campo) {
       case "nombres":
       case "apellidos":
+        // que hace el regex? moverlo a enum
         if (!/^[a-zA-Z\s]+$/.test(valor)) return "Debe ingresar un valor válido";
         break;
       case "celular":
+        // que hace el regex? moverlo a enum
         if (!/^\d{9}$/.test(valor)) return "Debe ingresar un número válido de 9 dígitos";
         break;
       default:
@@ -96,6 +102,7 @@ const Resumen: FC<ResumenProps> = ({ carrito, onSubmit }) => {
 
       <Campo>
         <label htmlFor="distrito">Distrito</label>
+        {/* los distritos deben venir de un custom hook */}
         <Select
           id="distrito"
           name="distrito"
