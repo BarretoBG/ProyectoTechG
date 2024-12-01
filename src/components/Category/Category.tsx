@@ -14,7 +14,7 @@ const Category: FC<CategoriaProps> = ({ categorias, onCategoryClick }) => {
     <ContenedorCategoria>
       <CategoriaTitulo>CATEGORÍAS</CategoriaTitulo>
       <NombreCategorias>
-        <h3>All</h3>
+        <h3>Todo</h3>
         <CategoriaLista>
           <li>
             <CategoriaEnlace 
@@ -26,7 +26,6 @@ const Category: FC<CategoriaProps> = ({ categorias, onCategoryClick }) => {
           </li>
         </CategoriaLista>
 
-        {/* Renderizamos las categorías por grupo */}
         {Object.keys(categorias).map((grupo) => (
           <div key={grupo}>
             <h3>{grupo}</h3>

@@ -17,7 +17,7 @@ const Products: FC<ProductsProps> = ({ productos, onAddToCart }) => {
           {productos.map((producto) => (
             <Item key={producto.id}>
               <ItemImg src={producto.images[0]} alt={producto.title} />
-              <ItemTitulo>{producto.category}</ItemTitulo>
+              <ItemTitulo>{producto.category} </ItemTitulo>
               <ItemSubtitulo>{producto.title}</ItemSubtitulo>
               <ItemSubtitulo>Precio: S/.{producto.price}</ItemSubtitulo>
               <ItemBoton onClick={() => onAddToCart(producto)}>Añadir al carrito</ItemBoton>

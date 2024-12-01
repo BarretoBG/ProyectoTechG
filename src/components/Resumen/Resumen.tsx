@@ -1,74 +1,15 @@
-import React, { FC, useState } from "react";
+import { FC } from "react";
 import ResumenStyled from "./Resumen.styled";
+import { ResumenProps } from "../../interfaces/formulario";
+import { useFormulario } from "../../hooks/useFormulario";
 
 const { Formulario, Campo, Error, Boton, Select } = ResumenStyled;
 
-interface ResumenProps {
-  carrito: any[];
-  onSubmit: (datosFormulario: Record<string, string>) => void;
-}
-
 const Resumen: FC<ResumenProps> = ({ carrito, onSubmit }) => {
-  const [formulario, setFormulario] = useState({
-    nombres: "",
-    apellidos: "",
-    distrito: "",
-    direccion: "",
-    referencia: "",
-    celular: "",
-  });
-
-  const [errores, setErrores] = useState({
-    nombres: "",
-    apellidos: "",
-    distrito: "",
-    direccion: "",
-    referencia: "",
-    celular: "",
-  });
-
-  const validarCampo = (campo: string, valor: string): string => {
-    if (!valor) return "Campo obligatorio";
-
-    switch (campo) {
-      case "nombres":
-      case "apellidos":
-        if (!/^[a-zA-Z\s]+$/.test(valor)) return "Debe ingresar un valor válido";
-        break;
-      case "celular":
-        if (!/^\d{9}$/.test(valor)) return "Debe ingresar un número válido de 9 dígitos";
-        break;
-      default:
-        break;
-    }
-
-    return "";
-  };
-
-  const manejarCambio = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormulario({ ...formulario, [name]: value });
-    setErrores({ ...errores, [name]: validarCampo(name, value) });
-  };
-
-  const manejarEnvio = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const nuevosErrores = Object.keys(formulario).reduce((acc, campo) => {
-      acc[campo as keyof typeof errores] = validarCampo(campo, formulario[campo as keyof typeof formulario]);
-      return acc;
-    }, {} as typeof errores);
-
-    setErrores(nuevosErrores);
-
-    const hayErrores = Object.values(nuevosErrores).some((error) => error !== "");
-    if (hayErrores) return;
-
-    onSubmit(formulario); 
-  };
+  const { formUser, errores, distritos, manejarCambio, manejarEnvio } = useFormulario(onSubmit);
 
   return (
-    <Formulario onSubmit={manejarEnvio}>
+    <Formulario onSubmit={manejarEnvio} role="form">
       <h2>Formulario de Envío</h2>
       <Campo>
         <label htmlFor="nombres">Nombres</label>
@@ -76,7 +17,7 @@ const Resumen: FC<ResumenProps> = ({ carrito, onSubmit }) => {
           type="text"
           id="nombres"
           name="nombres"
-          value={formulario.nombres}
+          value={formUser.nombres}
           onChange={manejarCambio}
         />
         {errores.nombres && <Error>{errores.nombres}</Error>}
@@ -88,7 +29,7 @@ const Resumen: FC<ResumenProps> = ({ carrito, onSubmit }) => {
           type="text"
           id="apellidos"
           name="apellidos"
-          value={formulario.apellidos}
+          value={formUser.apellidos}
           onChange={manejarCambio}
         />
         {errores.apellidos && <Error>{errores.apellidos}</Error>}
@@ -99,15 +40,13 @@ const Resumen: FC<ResumenProps> = ({ carrito, onSubmit }) => {
         <Select
           id="distrito"
           name="distrito"
-          value={formulario.distrito}
+          value={formUser.distrito}
           onChange={manejarCambio}
         >
           <option value="">Seleccione un distrito</option>
-          <option value="Miraflores">Miraflores</option>
-          <option value="San Isidro">San Isidro</option>
-          <option value="Surco">Surco</option>
-          <option value="Barranco">Barranco</option>
-          <option value="La Molina">La Molina</option>
+          {distritos.map((distrito) => (
+            <option key={distrito} value={distrito}>{distrito}</option>
+          ))}
         </Select>
         {errores.distrito && <Error>{errores.distrito}</Error>}
       </Campo>
@@ -118,7 +57,7 @@ const Resumen: FC<ResumenProps> = ({ carrito, onSubmit }) => {
           type="text"
           id="direccion"
           name="direccion"
-          value={formulario.direccion}
+          value={formUser.direccion}
           onChange={manejarCambio}
         />
         {errores.direccion && <Error>{errores.direccion}</Error>}
@@ -130,7 +69,7 @@ const Resumen: FC<ResumenProps> = ({ carrito, onSubmit }) => {
           type="text"
           id="referencia"
           name="referencia"
-          value={formulario.referencia}
+          value={formUser.referencia}
           onChange={manejarCambio}
         />
         {errores.referencia && <Error>{errores.referencia}</Error>}
@@ -142,7 +81,7 @@ const Resumen: FC<ResumenProps> = ({ carrito, onSubmit }) => {
           type="text"
           id="celular"
           name="celular"
-          value={formulario.celular}
+          value={formUser.celular}
           onChange={manejarCambio}
         />
         {errores.celular && <Error>{errores.celular}</Error>}

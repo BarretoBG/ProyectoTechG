@@ -6,6 +6,7 @@ export const FooterWrapper = styled.div`
   font-family: 'Onest';
   color: white;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   grid-area: footer;
 `;
@@ -37,8 +38,7 @@ export const Hr = styled.hr`
 `;
 
 export const ContenedorFooterSecond = styled.div`
-  display: grid;
-    grid-template-areas:
+  grid-template-areas:
         "a a a"
         "b b b";
 `;
