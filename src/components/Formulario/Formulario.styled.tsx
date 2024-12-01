@@ -12,10 +12,23 @@ const Titulo = styled.h2`
   letter-spacing: 2px;
   margin-bottom: 20px;
 `;
+const ForgotPasswordLink = styled.a`
+  font-size: 14px;
+  color: #05b580;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 10px;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
 
 const BotonStyled = {
     FormContainer,
-    Titulo
+    Titulo,
+    ForgotPasswordLink
   };
   
 export default BotonStyled;

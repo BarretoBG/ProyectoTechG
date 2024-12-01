@@ -16,7 +16,9 @@ export const UserActions: FC = () => {
         <Carrito src="src/assets/images/carrito.png" alt="Carrito" />
         <NumeroItem>{totalProductos}</NumeroItem>
       </Link>
+      <Link to={ModuleRoutes.Login} style={{ textDecoration: 'none' }}>
         <User src="src/assets/images/user.png" alt="Usuario" />
+      </Link>
     </Usuario>
   );
 };
