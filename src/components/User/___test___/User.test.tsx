@@ -1,17 +1,17 @@
 import { render, screen } from '@testing-library/react';
 import { UserActions } from '../User';
-import { CartContext } from '../../../context/CartContext';  // Importa el CartContext
+import { CartContext } from '../../../context/CartContext';
 import { BrowserRouter } from 'react-router-dom';
 
-// Datos de prueba para el carrito
+// DATOS DE PRUEBA PARA EL CARRITO
 const carritoMock = [
   { id: 1, title: 'Producto 1', price: 10, description: '', category: '', images: '', cantidad: 2 },
   { id: 2, title: 'Producto 2', price: 20, description: '', category: '', images: '', cantidad: 3 },
 ];
+//---------------------------------------------
 
 describe('UserActions Component', () => {
   it('debería mostrar el carrito con la cantidad total de productos', () => {
-    // Renderizamos el componente con el contexto simulado
     render(
       <CartContext.Provider value={{ carrito: carritoMock, setCarrito: jest.fn(), limpiarCarrito: jest.fn(), eliminarDelCarrito: jest.fn() }}>
         <BrowserRouter>
@@ -20,8 +20,7 @@ describe('UserActions Component', () => {
       </CartContext.Provider>
     );
 
-    // Verificamos que el número total de productos se muestre correctamente
-    const numeroItem = screen.getByText('5'); // 2 + 3 productos
+    const numeroItem = screen.getByText('5');
     expect(numeroItem).toBeInTheDocument();
   });
 
@@ -38,7 +37,7 @@ describe('UserActions Component', () => {
     const linkCarrito = screen.getByRole('link', { name: /carrito/i });
 
     expect(carritoIcono).toBeInTheDocument();
-    expect(linkCarrito).toHaveAttribute('href', '/CartResume'); // Asegúrate que sea el href correcto
+    expect(linkCarrito).toHaveAttribute('href', '/CartResume');
   });
 
   it('debería mostrar el icono de usuario', () => {
