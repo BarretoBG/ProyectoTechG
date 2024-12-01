@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import CarItem from '../CarItem';
 import { CarritoProduct } from '../../../interfaces/CarritoProduct';
 
-// Mock de productos para la prueba
+// MOCKS DE PRUEBA
 const mockProductos: CarritoProduct[] = [
   {
     id: 1,
@@ -25,7 +25,6 @@ const mockProductos: CarritoProduct[] = [
   },
 ];
 
-// Mock del hook `useCarItem`
 jest.mock('../../../hooks/useCart', () => {
   const mockHandleIncrementar = jest.fn();
   const mockHandleDecrementar = jest.fn();
@@ -36,22 +35,20 @@ jest.mock('../../../hooks/useCart', () => {
       handleIncrementar: mockHandleIncrementar,
       handleDecrementar: mockHandleDecrementar,
       handleEliminarProducto: mockHandleEliminarProducto,
-      total: 70.44, // Total calculado para la prueba
+      total: 70.44, 
     }),
   };
 });
+//--------------------------------------------------------------
 
 describe('CarItem Component', () => {
   it('debería renderizar los productos correctamente', () => {
     render(<CarItem productos={mockProductos} />);
 
-    // Verificar que los productos aparecen en el documento
     mockProductos.forEach((producto) => {
       expect(screen.getByText(producto.title)).toBeInTheDocument();
       expect(screen.getByText(producto.cantidad)).toBeInTheDocument();
     });
-
-    // Verificar el total
     expect(screen.getByText('Total a pagar: S/ 70.44')).toBeInTheDocument();
   });
 
@@ -61,11 +58,9 @@ describe('CarItem Component', () => {
 
     render(<CarItem productos={mockProductos} />);
 
-    // Simular clic en el botón de incrementar
     const botonesIncrementar = screen.getAllByRole('button', { name: '+' });
     fireEvent.click(botonesIncrementar[0]);
 
-    // Verificar que el mock fue llamado con el ID correcto
     expect(mockHandleIncrementar).toHaveBeenCalledWith(mockProductos[0].id);
     expect(mockHandleIncrementar).toHaveBeenCalledTimes(1);
   });
@@ -76,11 +71,9 @@ describe('CarItem Component', () => {
 
     render(<CarItem productos={mockProductos} />);
 
-    // Simular clic en el botón de decrementar
     const botonesDecrementar = screen.getAllByRole('button', { name: '-' });
     fireEvent.click(botonesDecrementar[0]);
 
-    // Verificar que el mock fue llamado con el ID correcto
     expect(mockHandleDecrementar).toHaveBeenCalledWith(mockProductos[0].id);
     expect(mockHandleDecrementar).toHaveBeenCalledTimes(1);
   });
@@ -91,11 +84,9 @@ describe('CarItem Component', () => {
 
     render(<CarItem productos={mockProductos} />);
 
-    // Simular clic en el botón de eliminar
     const botonesEliminar = screen.getAllByRole('button', { name: 'Eliminar' });
     fireEvent.click(botonesEliminar[0]);
 
-    // Verificar que el mock fue llamado con el ID correcto
     expect(mockHandleEliminarProducto).toHaveBeenCalledWith(mockProductos[0].id);
     expect(mockHandleEliminarProducto).toHaveBeenCalledTimes(1);
   });

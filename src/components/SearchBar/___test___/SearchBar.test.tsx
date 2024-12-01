@@ -7,17 +7,14 @@ describe('SearchBar Component', () => {
 
     render(<SearchBar setBusqueda={mockSetBusqueda} />);
 
-    // Simular un cambio con un valor
     fireEvent.change(screen.getByPlaceholderText('Buscar productos...'), {
       target: { value: 'Producto de prueba' },
     });
 
-    // Simular que se borra el campo de búsqueda
     fireEvent.change(screen.getByPlaceholderText('Buscar productos...'), {
       target: { value: '' },
     });
-
-    // Verificar que la función setBusqueda fue llamada con un valor vacío
+    
     expect(mockSetBusqueda).toHaveBeenCalledWith('');
   });
 });

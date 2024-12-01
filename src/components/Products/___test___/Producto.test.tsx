@@ -2,28 +2,30 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import Products from '../Products';
 import { Product } from '../../../interfaces/producto';
 
+//MOKS USADAS
+const productosMock: Product[] = [
+  {
+    id: 1,
+    title: 'Producto 1',
+    description: 'Descripción del producto 1',
+    category: 'Categoría 1',
+    price: 100,
+    images: 'h',
+  },
+  {
+    id: 2,
+    title: 'Producto 2',
+    description: 'Descripción del producto 2',
+    category: 'Categoría 2',
+    price: 200,
+    images: 'h',
+  },
+];
+
+const mockOnAddToCart = jest.fn();
+//------------------------------------------------
+
 describe('Products Component', () => {
-  const productosMock: Product[] = [
-    {
-      id: 1,
-      title: 'Producto 1',
-      description: 'Descripción del producto 1',
-      category: 'Categoría 1',
-      price: 100,
-      images: 'h',
-    },
-    {
-      id: 2,
-      title: 'Producto 2',
-      description: 'Descripción del producto 2',
-      category: 'Categoría 2',
-      price: 200,
-      images: 'h',
-    },
-  ];
-
-  const mockOnAddToCart = jest.fn();
-
   test('Debería renderizar los productos correctamente', () => {
     render(<Products productos={productosMock} onAddToCart={mockOnAddToCart} />);
 
@@ -36,7 +38,6 @@ describe('Products Component', () => {
   test('Debería llamar a onAddToCart cuando se haga clic en el botón "Añadir al carrito"', () => {
     render(<Products productos={productosMock} onAddToCart={mockOnAddToCart} />);
 
-    // Usar getAllByText y seleccionar el primer botón con el texto "Añadir al carrito"
     const buttons = screen.getAllByText('Añadir al carrito');
 
     fireEvent.click(buttons[0]);
