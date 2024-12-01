@@ -1,4 +1,3 @@
-// CartContext.tsx
 import { createContext, useState, useContext, FC, ReactNode } from "react";
 import { Product } from "../interfaces/producto";
 
@@ -8,8 +7,8 @@ interface CarritoProduct extends Product {
 
 interface CartContextType {
   carrito: CarritoProduct[];
-  setCarrito: React.Dispatch<React.SetStateAction<CarritoProduct[]>>; // Exponer setCarrito 
-  agregarAlCarrito: (producto: CarritoProduct) => void; // Cambiar a CarritoProduct
+  setCarrito: React.Dispatch<React.SetStateAction<CarritoProduct[]>>;
+  limpiarCarrito: () => void;
   eliminarDelCarrito: (productoId: number) => void;
 }
 
@@ -21,31 +20,17 @@ interface CartProviderProps {
 
 export const CartProvider: FC<CartProviderProps> = ({ children }) => {
   const [carrito, setCarrito] = useState<CarritoProduct[]>([]);
-
-  const agregarAlCarrito = (producto: CarritoProduct) => {
-    setCarrito((prevCarrito) => {
-      const productoExistente = prevCarrito.find((p) => p.id === producto.id);
-      if (productoExistente) {
-        
-        return prevCarrito.map((p) =>
-          p.id === producto.id
-            ? { ...p, cantidad: p.cantidad + (producto.cantidad > p.cantidad ? 1 : -1) }
-            : p
-        );
-      } else {
-        
-        return [...prevCarrito, { ...producto, cantidad: 1 }];
-      }
-    });
-  };
   
+  const limpiarCarrito = () => {
+    setCarrito([]);
+  };
 
   const eliminarDelCarrito = (productoId: number) => {
     setCarrito((prevCarrito) => prevCarrito.filter((producto) => producto.id !== productoId));
   };
 
   return (
-    <CartContext.Provider value={{ carrito, setCarrito, agregarAlCarrito, eliminarDelCarrito }}>
+    <CartContext.Provider value={{ carrito, setCarrito, eliminarDelCarrito, limpiarCarrito }}>
       {children}
     </CartContext.Provider>
   );
@@ -58,3 +43,5 @@ export const useCart = (): CartContextType => {
   }
   return context;
 };
+
+export {CartContext};

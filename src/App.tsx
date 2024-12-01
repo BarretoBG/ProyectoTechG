@@ -11,7 +11,7 @@ const App: FC = () => {
       <BrowserRouter>
         <Routes>
           <Route path={ModuleRoutes.Init} element={<Home />} />
-          <Route path={ModuleRoutes.CarResume} element={<CarDetail />} />
+          <Route path={ModuleRoutes.CartResume} element={<CarDetail />} />
         </Routes>
       </BrowserRouter>
     </CartProvider>

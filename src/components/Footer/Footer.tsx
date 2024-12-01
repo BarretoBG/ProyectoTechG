@@ -12,14 +12,14 @@ const Footer: FC = () => {
         <Info>
           <h3>SÍGUENOS</h3>
           <Redes>
-            <FooterLink href="#">
+            <FooterLink href="https://www.facebook.com/">
               <img src="src/assets/images/f.png" width="40px" alt="Facebook" />
             </FooterLink>
-            <FooterLink href="#">
+            <FooterLink href="https://www.instagram.com/">
               <img src="src/assets/images/i.png" width="40px" alt="Instagram" />
             </FooterLink>
-            <FooterLink href="#">
-              <img src="src/assets/images/tt.png" width="40px" alt="Twitter" />
+            <FooterLink href="https://www.tiktok.com/">
+              <img src="src/assets/images/tt.png" width="40px" alt="TikTok" />
             </FooterLink>
           </Redes>
           <Hr />
@@ -51,7 +51,7 @@ const Footer: FC = () => {
             <h3>LIBRO DE RECLAMACIONES</h3>
           </Info>
           <ReclamosLink href="#">
-            <ReclamosImg src="src/assets/images/lib.png" alt="Libro de Reclamos" />
+            <ReclamosImg src="src/assets/images/lib.png" alt="Libro de Reclamaciones" />
           </ReclamosLink>
         </ContenedorReclamos>
       </ContenedorFooterSecond>

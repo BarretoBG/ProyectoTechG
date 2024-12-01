@@ -1,27 +1,24 @@
 import { FC, useState } from 'react';
-import Header from "../../components/Header/Header";
+import Header from "../../components/HeaderPrincipal/HeaderSecundario";
 import Footer from "../../components/Footer/Footer";
 import CarItem from "../../components/CarItem/CarItem";
 import Resumen from "../../components/Resumen/Resumen";
 import { useCart } from "../../context/CartContext";
-import { useNavigate } from "react-router-dom";
 
 export const CarDetail: FC = () => {
   const { carrito, setCarrito } = useCart();
   const [busqueda, setBusqueda] = useState<string>('');
-  const navigate = useNavigate();
 
   const manejarCompra = (datosFormulario: Record<string, string>) => {
-    console.log("Datos enviados:", datosFormulario);
+    console.log("Datos enviados:", Object.values(datosFormulario));
     alert("Su pedido se registró con éxito");
 
-    setCarrito([]); // Limpiamos el carrito
-    navigate("/"); // Redirigimos al inicio
+    setCarrito([]);
   };
 
   return (
     <>
-      <Header setBusqueda={setBusqueda} />
+      <Header />
       <CarItem productos={carrito} /> 
       <Resumen carrito={carrito} onSubmit={manejarCompra} /> 
       <Footer />
