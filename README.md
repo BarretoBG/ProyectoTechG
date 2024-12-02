@@ -1,50 +1,31 @@
-# React + TypeScript + Vite
+# Organic Market
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
 
-Currently, two official plugins are available:
+Organic Market es una aplicación web que permite a los usuarios explorar productos orgánicos, agregarlos a su carrito de compras y realizar pagos en línea. Esta aplicación es una plataforma intuitiva para promover productos saludables y ecológicos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologías utilizadas
 
-## Expanding the ESLint configuration
+- **React**: Biblioteca JavaScript para construir la interfaz de usuario.
+- **Vite**: Herramienta de construcción rápida para proyectos de front-end.
+- **TypeScript**: Lenguaje de programación que extiende JavaScript con tipos estáticos.
+- **React Router**: Biblioteca para manejo de rutas en aplicaciones React.
+- **Styled Components**: Librería para escribir CSS dentro de JavaScript.
+- **Context API**: Para el manejo del estado global (usuario, carrito, etc.).
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Instalación
 
-- Configure the top-level `parserOptions` property like this:
+1. Clona el repositorio
+2. Entra en la carpeta del proyecto
+3. Instala las dependencias
+4. Inicia el servidor de desarrollo
+5. Abre tu navegador y accede
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Características
+- **Autenticación de usuario:** Los usuarios pueden iniciar sesión para acceder a su cuenta.
+- **Carrito de compras:** Los usuarios pueden agregar productos al carrito y ver un resumen de su pedido.
+- **Interfaz intuitiva:** Navegación fácil y fluida con React Router.
+- **Respetuoso con dispositivos móviles:** Diseño responsivo para una experiencia óptima en móviles y tabletas.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Participante
+Britney Barreto Gómez
