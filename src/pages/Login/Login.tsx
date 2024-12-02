@@ -1,15 +1,17 @@
-import React from 'react';
+import { FC } from 'react';
 import BannerImagen from '../../components/BannerImagen/Bannerimagen';
 import Formulario from '../../components/Formulario/Formulario';
 import LoginStyled from './Login.styled';
 
-const { LoginContainer } = LoginStyled;
+const { LoginContainer, BannerContainer, FormularioContainer, } = LoginStyled;
 
-const Login = () => (
-  <LoginContainer>
-    <BannerImagen />
-    <Formulario />
-  </LoginContainer>
-);
+const Login: FC = () => {
+  return (
+    <LoginContainer>
+      <BannerContainer> <BannerImagen /> </BannerContainer>
+      <FormularioContainer> <Formulario /> </FormularioContainer>
+    </LoginContainer>
+  );
+};
 
 export default Login;

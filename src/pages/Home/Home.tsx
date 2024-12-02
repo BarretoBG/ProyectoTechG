@@ -9,6 +9,7 @@ import { agregarAlCarrito } from '../../services/cartService/cartService';
 import { grupos } from '../../interfaces/categories';
 import { useProductos } from '../../hooks/useProducts';
 import HomeStyled from './Home.styled';
+import withAuth from '../../HOC/userHOC';
 
 const { Layout } = HomeStyled;
 
@@ -40,4 +41,4 @@ const Home: FC = () => {
   );
 };
 
-export default Home;
+export default withAuth(Home);

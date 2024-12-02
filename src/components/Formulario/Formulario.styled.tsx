@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
+  max-width: 400px;
 `;
 
 const Titulo = styled.h2`
@@ -11,7 +12,9 @@ const Titulo = styled.h2`
   display: inline-block;
   letter-spacing: 2px;
   margin-bottom: 20px;
+  text-align: center;
 `;
+
 const ForgotPasswordLink = styled.a`
   font-size: 14px;
   color: #05b580;
@@ -26,9 +29,9 @@ const ForgotPasswordLink = styled.a`
 `;
 
 const BotonStyled = {
-    FormContainer,
-    Titulo,
-    ForgotPasswordLink
-  };
-  
+  FormContainer,
+  Titulo,
+  ForgotPasswordLink,
+};
+
 export default BotonStyled;

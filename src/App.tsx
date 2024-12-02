@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CartProvider } from './context/CartContext'; // Importa el contexto
+import { CartProvider } from './context/CartContext';
+import { UserProvider } from './context/UserContext';
 import Home from "./pages/Home/Home";
 import { CarDetail } from "./pages/CarDetail/CarDetail";
 import { ModuleRoutes } from "./proxy/router";
@@ -8,7 +9,9 @@ import Login from "./pages/Login/Login";
 
 const App: FC = () => {
   return (
-    <CartProvider> {/* Proveemos el contexto para toda la aplicación */}
+   
+    <CartProvider>
+      <UserProvider>
       <BrowserRouter>
         <Routes>
           <Route path={ModuleRoutes.Init} element={<Home />} />
@@ -16,6 +19,7 @@ const App: FC = () => {
           <Route path={ModuleRoutes.Login} element={<Login />} />
         </Routes>
       </BrowserRouter>
+      </UserProvider>
     </CartProvider>
   );
 };

@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 const ImagenContainer = styled.div`
+  flex: 1;
   position: relative;
-  width: 50%;
+  height: 100vh;
 `;
 
 const ImagenBefore = styled.div`

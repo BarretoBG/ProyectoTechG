@@ -9,6 +9,7 @@ interface ProductsProps {
   onAddToCart: (producto: Product) => void;
 }
 
+
 const Products: FC<ProductsProps> = ({ productos, onAddToCart }) => {
   return (
     <ContenedorPrincipal>

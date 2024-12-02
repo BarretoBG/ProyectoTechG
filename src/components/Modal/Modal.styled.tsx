@@ -27,7 +27,7 @@ const ModalHeader = styled.h3`
 
 const InputField = styled.input`
   width: 100%;
-  padding: 10px;
+  padding: 10px 0px;
   margin-bottom: 20px;
   border-radius: 5px;
   border: 1px solid #ccc;

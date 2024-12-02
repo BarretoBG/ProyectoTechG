@@ -1,12 +1,12 @@
-import React from 'react';
+import { FC } from 'react';
 import BannerImagenStyled from './Bannerimagen.styled';
 
 const { ImagenContainer, ImagenBefore, ImagenImg } = BannerImagenStyled;
 
-const BannerImagen = () => (
+const BannerImagen: FC = () => (
   <ImagenContainer>
     <ImagenBefore />
-    <ImagenImg src="images/login.jpg" alt="Login" />
+    <ImagenImg src="src/assets/images/login.jpg" />
   </ImagenContainer>
 );
 
