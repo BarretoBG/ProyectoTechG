@@ -20,16 +20,12 @@ export const loginUserRequest = async (username: string, password: string) => {
   
       const data = await response.json();
   
-      // Comprobamos si los tokens fueron retornados
       if (data.accessToken && data.refreshToken) {
-        // Guardamos los tokens en el almacenamiento local o cookies
         localStorage.setItem('accessToken', data.accessToken);
         localStorage.setItem('refreshToken', data.refreshToken);
         localStorage.setItem('userName', data.firstName);
         localStorage.setItem('refreshToken', data.lastName);
         localStorage.setItem('userEmail', data.email);
-  
-        // Devolvemos un objeto con los datos que usaremos en el contexto
         return {
           firstName: data.firstName,
           lastName: data.lastName,

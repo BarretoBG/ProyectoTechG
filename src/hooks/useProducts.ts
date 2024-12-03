@@ -29,11 +29,9 @@ export const useProductos = (busqueda: string, categoria: string) => {
     cargarProductos();
   }, []);
 
-  // Usamos useMemo para memorizar productos filtrados y evitar recalcular si no cambian los datos
   const productosFiltrados = useMemo(() => {
     let productosFiltrados = [...productos];
 
-    // Filtrado por búsqueda
     if (busqueda.trim() !== '') {
       productosFiltrados = productosFiltrados.filter(({ title, description }) =>
         [title.toLowerCase(), description.toLowerCase()].some((campo) =>
@@ -42,10 +40,8 @@ export const useProductos = (busqueda: string, categoria: string) => {
       );
     }
 
-    // Filtrado por categoría
     const categoriaSeleccionada = categoria.toLowerCase();
     if (categoriaSeleccionada !== '') {
-      // Recorremos los grupos y buscamos si la categoriaSeleccionada está en alguna de las subcategorías
       let categoriaEncontrada = false;
       Object.values(grupos).forEach(subcategorias => {
         if (subcategorias.map(subcat => subcat.toLowerCase()).includes(categoriaSeleccionada)) {
@@ -56,7 +52,6 @@ export const useProductos = (busqueda: string, categoria: string) => {
         }
       });
 
-      // Si no se encontró la categoría en los grupos, se imprime un error
       if (!categoriaEncontrada) {
         console.error(`Categoría no encontrada: ${categoriaSeleccionada}`);
       }

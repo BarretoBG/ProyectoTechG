@@ -34,17 +34,15 @@ export const useFormulario = (onSubmit: (formUser: formUser) => void) => {
   ) => {
     const { name, value } = e.target;
     setformUser({ ...formUser, [name]: value });
-    // No validamos aquí, solo actualizamos el valor
     setErrores({
       ...errores,
-      [name]: "",  // Limpiamos el error cuando el usuario cambia el valor
+      [name]: "",
     });
   };
 
   const manejarEnvio = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validamos solo cuando el formulario es enviado
     const nuevosErrores = Object.keys(formUser).reduce((acc, campo) => {
       acc[campo as keyof formUser] = validarCampo(campo as "nombres" | "apellidos" | "celular", formUser[campo as keyof formUser]);
       return acc;
@@ -52,14 +50,12 @@ export const useFormulario = (onSubmit: (formUser: formUser) => void) => {
 
     setErrores(nuevosErrores);
 
-    // Verificamos si hay algún error
     const hayErrores = Object.values(nuevosErrores).some((error) => error !== "");
     if (hayErrores) return;
 
-    // Si no hay errores, se llama al onSubmit
     onSubmit(formUser);
-    setCarrito([]);  // Vaciar el carrito
-    navigate(ModuleRoutes.Init);  // Redirigir
+    setCarrito([]);
+    navigate(ModuleRoutes.Init);
   };
 
   return {

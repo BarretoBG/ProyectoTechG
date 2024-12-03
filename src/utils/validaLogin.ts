@@ -1,10 +1,10 @@
-type ValidationErrors = {
+type ValidaErrores = {
     email?: string;
     password?: string;
   };
   
-  const validateForm = (email: string, password: string): ValidationErrors => {
-    const errors: ValidationErrors = {};
+  const validaLogin = (email: string, password: string): ValidaErrores => {
+    const errors: ValidaErrores = {};
   
     if (!email) {
       errors.email = 'El usuario es obligatorio.';
@@ -17,5 +17,5 @@ type ValidationErrors = {
     return errors;
   };
   
-  export { validateForm };
+  export { validaLogin as validaLogin };
   

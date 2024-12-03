@@ -7,12 +7,10 @@ import { useCart } from "../../context/CartContext";
 
 export const CarDetail: FC = () => {
   const { carrito, setCarrito } = useCart();
-  const [busqueda, setBusqueda] = useState<string>('');
 
   const manejarCompra = (datosFormulario: Record<string, string>) => {
     console.log("Datos enviados:", Object.values(datosFormulario));
     alert("Su pedido se registró con éxito");
-
     setCarrito([]);
   };
 

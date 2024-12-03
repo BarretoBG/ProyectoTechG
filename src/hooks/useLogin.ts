@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { loginUserRequest } from '../proxy/authentication'; // Ahora importamos loginUserRequest
-import { validateForm } from '../utils/validacionlogin';
+import { validaLogin } from '../utils/validalogin';
 import { ModuleRoutes } from "../proxy/router";
 import { useNavigate } from "react-router-dom";
 import { useUser } from '../context/UserContext';
@@ -21,7 +21,7 @@ export const useLogin = () => {
     setErrors({ email: '', password: '', api: '' });
   
     // Validar campos
-    const formErrors = validateForm(email, password);
+    const formErrors = validaLogin(email, password);
     if (Object.keys(formErrors).length > 0) {
       setErrors((prev) => ({ ...prev, ...formErrors }));
       return;
@@ -31,8 +31,6 @@ export const useLogin = () => {
     try {
       // Llamar a la función que hace la petición de login
       const userData = await loginUserRequest(email, password);
-      alert('Login exitoso!');
-      console.log(userData); // Aquí puedes redirigir al usuario o guardar su estado
       setUser(userData);
       localStorage.setItem('user', JSON.stringify(userData));
     } catch (error) {
