@@ -10,7 +10,7 @@ export const CarDetail: FC = () => {
 
   const manejarCompra = (datosFormulario: Record<string, string>) => {
     console.log("Datos enviados:", Object.values(datosFormulario));
-    alert("Su pedido se registró con éxito");
+    alert("Su pedido se registró con éxito ");
     setCarrito([]);
   };
 
