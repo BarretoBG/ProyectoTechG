@@ -10,8 +10,9 @@ import { grupos } from '../../interfaces/categories';
 import { useProductos } from '../../hooks/useProducts';
 import HomeStyled from './Home.styled';
 import withAuth from '../../HOC/userHOC';
+import Mensaje from "../../components/Mensaje/Mensaje";
 
-const { Layout } = HomeStyled;
+const { Layout, ContenedorMensaje } = HomeStyled;
 
 const Home: FC = () => {
   const [busqueda, setBusqueda] = useState<string>(''); 
@@ -19,7 +20,7 @@ const Home: FC = () => {
   const { carrito, setCarrito } = useCart();
 
   const { productosFiltrados, cargando } = useProductos(busqueda, categoria);
-
+  
   const handleCategoryClick = (categoria: string) => {
     setCategoria(categoria); 
   };
@@ -31,6 +32,9 @@ const Home: FC = () => {
 
   return (
     <Layout>
+      <ContenedorMensaje>
+      <Mensaje />
+      </ContenedorMensaje>
       <Header setBusqueda={setBusqueda} />
       <Category categorias={grupos} onCategoryClick={handleCategoryClick} />
       {cargando ? <p>Cargando productos...</p> : (

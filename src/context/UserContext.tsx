@@ -15,6 +15,7 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const logout = () => {
     setUser(null);
     localStorage.removeItem('user');
+    localStorage.removeItem('welcomeMessageShown');
   };
 
   return (

@@ -9,9 +9,8 @@ import Login from "./pages/Login/Login";
 
 const App: FC = () => {
   return (
-   
+    <UserProvider>
     <CartProvider>
-      <UserProvider>
       <BrowserRouter>
         <Routes>
           <Route path={ModuleRoutes.Init} element={<Home />} />
@@ -19,8 +18,8 @@ const App: FC = () => {
           <Route path={ModuleRoutes.Login} element={<Login />} />
         </Routes>
       </BrowserRouter>
-      </UserProvider>
     </CartProvider>
+    </UserProvider>
   );
 };
 

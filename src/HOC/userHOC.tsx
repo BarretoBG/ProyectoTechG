@@ -8,8 +8,7 @@ const withAuth = <P extends object>(WrappedComponent: React.ComponentType<P>): F
     const { user } = useUser();
 
     // Verifica si el usuario está autenticado
-    if (!user?.name) {
-      console.log("el usuario es: "+user?.name);
+    if (!user?.firstName) {
       return <Navigate to={ModuleRoutes.Login} replace />;
     }
 

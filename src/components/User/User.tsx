@@ -22,7 +22,7 @@ export const UserActions: FC = () => {
 
       {user ? (
         <>
-          <span>Hola, {user.name}</span>
+          <span>Hola, {user.firstName}</span>
           <User src="src/assets/images/logout.jpg" alt="Logout" onClick={logout} />
         </>
       ) : (

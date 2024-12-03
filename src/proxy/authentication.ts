@@ -26,11 +26,13 @@ export const loginUserRequest = async (username: string, password: string) => {
         localStorage.setItem('accessToken', data.accessToken);
         localStorage.setItem('refreshToken', data.refreshToken);
         localStorage.setItem('userName', data.firstName);
+        localStorage.setItem('refreshToken', data.lastName);
         localStorage.setItem('userEmail', data.email);
   
         // Devolvemos un objeto con los datos que usaremos en el contexto
         return {
-          name: data.firstName,
+          firstName: data.firstName,
+          lastName: data.lastName,
           email: data.email,
           accessToken: data.accessToken,
           refreshToken: data.refreshToken,

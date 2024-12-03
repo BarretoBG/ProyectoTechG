@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const FooterWrapper = styled.div`
+const FooterWrapper = styled.div`
   background-color: black;
   padding: 40px;
   font-family: 'Onest';
@@ -11,58 +11,58 @@ export const FooterWrapper = styled.div`
   grid-area: footer;
 `;
 
-export const ContenedorFooterFirst = styled.div`
+const ContenedorFooterFirst = styled.div`
   margin-bottom: 20px;
 `;
 
-export const Info = styled.div`
+const Info = styled.div`
   flex: 0 0 calc(40% - 1rem);
   font-size: 0.8rem;
 `;
 
-export const Redes = styled.div`
+const Redes = styled.div`
   display: flex;
   justify-content: space-around;
   margin-top: 10px;
 `;
 
-export const FooterLink = styled.a`
+const FooterLink = styled.a`
   text-decoration: none;
   color: white;
   font-size: 0.8rem;
 `;
 
-export const Hr = styled.hr`
+const Hr = styled.hr`
   border: 0.5px solid #607d8b;
   margin: 10px 0;
 `;
 
-export const ContenedorFooterSecond = styled.div`
+const ContenedorFooterSecond = styled.div`
   grid-template-areas:
         "a a a"
         "b b b";
 `;
 
-export const ContenedorInformes = styled.div`
+const ContenedorInformes = styled.div`
   display: flex;
   justify-content: space-around;
   grid-area: a;
 `;
 
-export const ContenedorReclamos = styled.div`
+const ContenedorReclamos = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
     grid-area: b;
 `;
 
-export const ReclamosLink = styled.a`
+const ReclamosLink = styled.a`
   text-decoration: none;
   color: black;
   font-size: 0.8rem;
 `;
 
-export const ReclamosImg = styled.img`
+const ReclamosImg = styled.img`
   width: 100px;
 `;
 
