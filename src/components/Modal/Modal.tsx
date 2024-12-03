@@ -47,7 +47,6 @@ const Modal: FC<ModalProps> = ({ isOpen, closeModal }) => {
               onChange={handleEmailChange}
               style={{ borderColor: isValid ? 'initial' : 'red' }} 
             />
-            {!isValid && <p style={{ color: 'red' }}>Por favor, ingresa un correo electrónico válido.</p>}
             <Enviar type="submit">Enviar</Enviar>
           </form>
         )}

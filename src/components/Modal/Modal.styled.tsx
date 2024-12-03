@@ -27,8 +27,8 @@ export const Titulo = styled.h2`
 
 export const Input = styled.input`
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
+  padding: 10px 0px;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 `;

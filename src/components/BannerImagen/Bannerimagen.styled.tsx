@@ -12,7 +12,6 @@ const ImagenBefore = styled.div`
   width: 100%;
   height: 100%;
   background: linear-gradient(255deg, #b55802, #05b580);
-  z-index: 1;
   mix-blend-mode: screen;
 `;
 
