@@ -4,7 +4,7 @@ import { validaEmail } from '../../utils/validaModal';
 
 interface ModalProps {
   isOpen: boolean;
-  closeModal: () => void;
+  closeModal: () => void
 }
 
 const { ModalOverlay, Contenedor, Titulo, Input, Enviar, Boton, Mensaje } = ModalStyled;
