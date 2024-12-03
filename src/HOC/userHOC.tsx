@@ -7,12 +7,10 @@ const withAuth = <P extends object>(WrappedComponent: React.ComponentType<P>): F
   const AuthenticatedComponent: React.FC<P> = (props) => {
     const { user } = useUser();
 
-    // Verifica si el usuario está autenticado
     if (!user?.firstName) {
       return <Navigate to={ModuleRoutes.Login} replace />;
     }
 
-    // Renderiza el componente si está autenticado
     return <WrappedComponent {...props} />;
   };
 
