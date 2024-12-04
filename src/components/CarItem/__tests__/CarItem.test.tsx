@@ -53,6 +53,7 @@ describe('CarItem Component', () => {
   });
 
   it('debería manejar el incremento de cantidad', () => {
+    // usar jest.mock para evitar declararlo en cada test
     const { handleIncrementar: mockHandleIncrementar } =
       require('../../../hooks/useCart').useCarItem();
 

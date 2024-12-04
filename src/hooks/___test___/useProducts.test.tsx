@@ -1,3 +1,4 @@
+// no se est'a testeando cuando generar error
 import { renderHook, waitFor } from "@testing-library/react";
 import { useProductos } from "../useProducts";
 import { fetchData } from "../../proxy/fetchData";

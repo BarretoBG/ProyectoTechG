@@ -1,3 +1,4 @@
+// falta test
 import { FC } from "react";
 import ResumenStyled from "./Resumen.styled";
 import { ResumenProps } from "../../interfaces/formulario";

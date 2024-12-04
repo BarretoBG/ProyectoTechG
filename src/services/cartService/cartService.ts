@@ -1,3 +1,4 @@
+// falta test
 import { CarritoProduct } from "../../interfaces/CarritoProduct";
 
 export const calcularTotal = (productos: CarritoProduct[]): number => {
