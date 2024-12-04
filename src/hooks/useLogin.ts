@@ -29,6 +29,7 @@ export const useLogin = () => {
     try {
       const userData = await loginUserRequest(email, password);
       setUser(userData);
+      // uso adicional del localstorage?
       localStorage.setItem('user', JSON.stringify(userData));
     } catch (error) {
         setErrors((prev) => ({ ...prev, api: 'Error de autenticación' }));

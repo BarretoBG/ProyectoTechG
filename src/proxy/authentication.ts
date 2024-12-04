@@ -20,6 +20,8 @@ export const loginUserRequest = async (username: string, password: string) => {
   
       const data = await response.json();
   
+      // solo el access token y refresh token deber'ian estar en el storage, los dem'as datos deber'ian estar en el contexto
+      // este almacenamiento deber'ia hacerse fuera del servicio ya que se est'a dando m'as de 1 responsabilidad al authentication
       if (data.accessToken && data.refreshToken) {
         localStorage.setItem('accessToken', data.accessToken);
         localStorage.setItem('refreshToken', data.refreshToken);

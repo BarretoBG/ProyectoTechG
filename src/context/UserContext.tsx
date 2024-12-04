@@ -1,3 +1,4 @@
+// falta test
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 import { User } from "../interfaces/user";
 
@@ -14,6 +15,7 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const logout = () => {
     setUser(null);
+    // hay m'as key que se guardan al iniciar sesi'on que faltan eliminar
     localStorage.removeItem('user');
     localStorage.removeItem('welcomeMessageShown');
   };
