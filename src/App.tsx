@@ -1,3 +1,4 @@
+// falta test de rutas
 import { FC } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from './context/CartContext'; // Importa el contexto

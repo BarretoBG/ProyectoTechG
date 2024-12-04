@@ -33,6 +33,7 @@ describe('UserActions Component', () => {
       </CartContext.Provider>
     );
 
+    // el test debe evaluar lo que se pinta con el componente y hacia que ruta va si se presiona en el link
     const carritoIcono = screen.getByAltText('Carrito');
     const linkCarrito = screen.getByRole('link', { name: /carrito/i });
 
@@ -40,6 +41,7 @@ describe('UserActions Component', () => {
     expect(linkCarrito).toHaveAttribute('href', '/CartResume');
   });
 
+  // no aporta mucho este test
   it('debería mostrar el icono de usuario', () => {
     render(
       <CartContext.Provider value={{ carrito: carritoMock, setCarrito: jest.fn(), limpiarCarrito: jest.fn(), eliminarDelCarrito: jest.fn() }}>

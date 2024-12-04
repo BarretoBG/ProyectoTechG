@@ -1,3 +1,4 @@
+// es un componente con data estatica, sin condiciones, sin llamadas a servicios, ni l'ogica adicional todo se podr'ia resumir con un snapshot
 import { render, screen } from '@testing-library/react';
 import Footer from '../Footer';
 
