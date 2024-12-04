@@ -1,3 +1,5 @@
+// no hay test que valide cada ruta tanto p'ublicas como privadas
+// la p'agina CarDetail es accesible sin hacer login
 import { FC } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from './context/CartContext';

@@ -1,3 +1,5 @@
+// si el correo se deja vacio y se env'ia no hay ning'un mensaje de error
+// si se pone un correo correcto no hay ning'un mensaje de exito
 import { FC, useState } from 'react';
 import ModalStyled from './Modal.styled';
 import { validaEmail } from '../../utils/validaModal';
